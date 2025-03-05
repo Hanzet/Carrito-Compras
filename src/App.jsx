@@ -5,8 +5,13 @@ import { db } from "./data/db"
 
 function App() {
 
+    const initialCart = () => {
+        const localStorageCart = localStorage.getItem('cart')
+        return localStorageCart ? JSON.parse(localStorageCart) : []
+    }
+
     const [data, setData] = useState(db)
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(initialCart)
 
     const max_items = 5
     const min_items = 1
@@ -93,7 +98,7 @@ function App() {
 
             <footer className="bg-dark mt-5 py-5">
                 <div className="container-xl">
-                    <p className="text-white text-center fs-4 mt-4 m-md-0">GuitarLA - Todos los derechos Reservados 2025 - Jonacode -</p>
+                    <p className="text-white text-center fs-4 mt-4 m-md-0">GuitarLA - Todos los derechos Reservados 2025 - JonaCode -</p>
                 </div>
             </footer>
         </>
